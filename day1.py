@@ -45,6 +45,8 @@ print(f"more than 1 d: {arr}")
 arr_seq = np.arange(0, 10, 2)
 print(f"Sequence: {arr_seq}")
 
+rand_arr_ints = np.random.randint(0,9,(3,3))
+print(f"For random integers array: {rand_arr_ints}")
 
 #vector, matrices, tensor: vector is 1d array, matrices is 2d array
 
