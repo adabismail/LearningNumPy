@@ -147,10 +147,49 @@ added_array = arr1+arr2
 print(f"Added array: {added_array}")   #[3,5,7,9]
 
 
-concatenated_array = np.concatenate((arr1, arr2))    # [1 2 3 4 2 3 4 5]
+concatenated_array = np.concatenate((arr1, arr2))    # [1 2 3 4 2 3 4 5], tuples of arrays
 print(f"Concatenated array: {concatenated_array}")
 
-a = np.array([1,2,3])
-b = np.array([3,4,5,6])
-print(a.shape)
-print(b.shape)
+print(f"Copatibility: {arr1.shape == arr2.shape}")   #both shapes same
+
+print("\n" * 7)
+
+
+
+
+
+
+#ADDINGD ROWS AND COLUMNS
+
+# original = np.random.randint(1,6, (8))
+# print(f"Original array:\n {original}")
+
+
+# new_col = np.array([4,5])
+# with_new_col = np.hstack((original, new_col))
+# print(f"Matrix with new column:\n {with_new_col}")
+
+
+original = np.array([[1,2,3], [2,3,4]])
+print("Original array: \n", original)
+
+added_row = np.array([4,6,7])
+added_col = np.array([[0], [9]])
+
+added_row_array = np.vstack((original, added_row))
+added_col_array = np.hstack((original, added_col))
+
+print(f"Array with added row: \n{added_row_array}")
+print(f"Array with added col: \n{added_col_array}")
+
+
+
+#Deleting 
+
+final_arr = np.arange(0,16)
+print(f"Final array: {final_arr}")
+deleted1 = np.delete(final_arr, [0,15, 2])   #takes two inputs: the og array and whats to be deleted [start:stop:jump], can only be the index which is to be deleted
+deleted2 = np.delete(final_arr, 3)
+print(f"Final array after deletion using [start:end:jump]: {deleted1}")   #index to be deletd 0,2,4,6,.... since start from 0
+print(f"Final array after deletion only 1 index: {deleted2}")
+
