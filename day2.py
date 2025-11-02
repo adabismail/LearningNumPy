@@ -170,11 +170,13 @@ print("\n" * 7)
 # print(f"Matrix with new column:\n {with_new_col}")
 
 
-original = np.array([[1,2,3], [2,3,4]])
+#rows lagta hai horizontal hstack hoga, but woh vertical stack add hota hai so vstack(),imagine ke neeche ek aur row add huva so vstack, and ||ly in columns
+
+original = np.array([[1,2,3], [2,3,4]])   #(rows=2, cols=3)
 print("Original array: \n", original)
 
-added_row = np.array([4,6,7])
-added_col = np.array([[0], [9]])
+added_row = np.array([4,6,7])   #([[1,2,3], [2,3,4], [4,6,7]])
+added_col = np.array([[0], [9]])   #([[1,2,3,0], [2,3,4,9]])
 
 added_row_array = np.vstack((original, added_row))
 added_col_array = np.hstack((original, added_col))
@@ -186,10 +188,11 @@ print(f"Array with added col: \n{added_col_array}")
 
 #Deleting 
 
-final_arr = np.arange(0,16)
-print(f"Final array: {final_arr}")
-deleted1 = np.delete(final_arr, [0,15, 2])   #takes two inputs: the og array and whats to be deleted [start:stop:jump], can only be the index which is to be deleted
-deleted2 = np.delete(final_arr, 3)
-print(f"Final array after deletion using [start:end:jump]: {deleted1}")   #index to be deletd 0,2,4,6,.... since start from 0
-print(f"Final array after deletion only 1 index: {deleted2}")
+array = np.arange(0,11)
+print(f"array: {array}")
+deleted1 = np.delete(array, [0,9,1])   #takes two inputs: the og array and what indices to be deleted
+deleted2 = np.delete(array, [3])
+
+print(f"array after deletion using [indices to be deleted, 0,1,9]: {deleted1}")  
+print(f"array after deletion only 1 index (3rd index): {deleted2}")
 

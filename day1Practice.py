@@ -52,7 +52,7 @@ print(f"Final array: {final_array}")
 print(f"Reshaped array: {reshaped_final_arr}\n with size: {reshaped_final_arr.size}, shape: {reshaped_final_arr.shape}, and dimension: {reshaped_final_arr.ndim}")
 
 print(reshaped_final_arr[0][2][2])
-
+print("\n"*15)
 
 #NumPy Challenge: Set 2
 # Question 1: The Strided Matrix
@@ -61,6 +61,14 @@ print(reshaped_final_arr[0][2][2])
 # From this 8x8 matrix, create a new 4x4 matrix that contains only the elements where both the row index and the column index are even. (e.g., the elements from [0, 0], [0, 2], [0, 4], [0, 6], [2, 0], [2, 2], etc.).
 # Print the final 4x4 matrix.
 
+
+arr = np.arange(0,64)
+reshaped_arr = arr.reshape((8,8))
+print(f"8** matrix: \n{reshaped_arr}")
+final_matrix = reshaped_arr[0:9:2, 0:9:2]
+print(f"Final matrix: \n{final_matrix}")
+
+
 # Question 2: The "Center-Out" Transpose
 # Create a 5x5 matrix of random integers, with values between 10 and 99.
 # Print the original 5x5 matrix.
@@ -68,6 +76,16 @@ print(reshaped_final_arr[0][2][2])
 # Create a transposed version of this 3x3 core.
 # Replace the original 3x3 core inside the 5x5 matrix with its transposed version.
 # Print the final, modified 5x5 matrix.
+matrix = np.random.randint(10,100,(5,5))
+print(f"Original matrix:\n {matrix}")
+inner_matrix = matrix[1:4, 1:4]
+print(f"Inner 3*3 matrix:\n {inner_matrix}")
+transposed_inner_matrix = inner_matrix.T
+print(f"Transposed inner matrix: \n{transposed_inner_matrix}")
+
+matrix[1:4, 1:4] = transposed_inner_matrix
+print(f"Final matrix: \n {matrix}")
+
 
 # Question 3: The View vs. Copy Puzzle
 # Create a 1D array of integers from 1 to 12 (inclusive).
@@ -78,13 +96,45 @@ print(reshaped_final_arr[0][2][2])
 # Set the first element (index 0) of rav_c to 999.
 # Now, print the original matrix, mat_a.
 
+arr = np.arange(1,13)
+mat_a = np.reshape(arr, (3,4))
+
+flat_b = mat_a.flatten()
+rav_c = mat_a.ravel()
+
+flat_b[-1] = 111
+rav_c[0] = 999
+print(arr)
+
+
 # Question 4: The 3D Block Assignment
 # Create a 3D array with the shape (4, 2, 3) and fill it with all zeros.
 # Modify this 3D array in place by setting all the values in the first "page" (i.e., at index 0) to the number 5.
 # Modify the array again by setting all the values in the last "page" (i.e., at index 3) to the number 9.
 # Print the final 3D array.
+print("\n"*15)
+arr = np.zeros((4,2,3), dtype=int)
+print(arr)
+
+arr[0] = 5
+arr[3] = 9
+print(arr)
 
 # Question 5: The Checkerboard Challenge
 # Create an 8x8 matrix filled with all zeros, ensuring its dtype is int.
 # Modify this 8x8 matrix in place so that it becomes a checkerboard pattern of 0s and 1s. The element at [0, 0] (top-left) should be 1.
 # Print the final 8x8 checkerboard matrix.
+
+print("\n"*15)
+
+matrix_0s = np.zeros((8,8), dtype=int)
+matrix_0s[0:8:2, 0:8:2] = 1
+matrix_0s[1:8:2, 1:8:2] = 1
+
+
+print(matrix_0s)
+
+   
+
+
+

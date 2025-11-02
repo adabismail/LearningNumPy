@@ -7,12 +7,6 @@ import numpy as np
 
 matrix = np.random.randint(1,51, (6,4))
 print(f"Matrix of (6,4):\n {matrix} \n")
-# even_matrix = matrix % 2 == 0
-# print(even_matrix)
-
-# for i in range(6):
-#     if (matrix[i][2]%2) == 0:
-#         print(f"Row where index 2 is even : {matrix[i]}")
 
 condition = np.where(matrix[:,2]%2==0) 
 print(matrix[condition])       
@@ -54,8 +48,8 @@ matrix_B = np.random.randint(1,21, (4,2))
 print(f"Matrix A: \n{matrix_A}")
 print(f"Matrix B: \n{matrix_B}")
 
-sorted_col_matrix_A = print(f"Sorted columnn wise matrix_A: \n{np.sort(matrix_A, axis=0)}")  
-sorted_row_matrix_B = print(f"Sorted row wise matrix_B: \n{np.sort(matrix_B, axis=1)}")
+sorted_col_matrix_A = np.sort(matrix_A, axis=0)  
+sorted_row_matrix_B = np.sort(matrix_B, axis=1)
 
 h_stacked_matrix = np.hstack((matrix_A, matrix_B))
 print(h_stacked_matrix)
@@ -88,23 +82,21 @@ print(f"Final array after deleting elements at that indices: {np.delete(arr_1d, 
 
 
 print("\n"*15)
+
+
+
 # Question 5: The "Border"
 # Create a 7x7 matrix filled with all zeros, using np.zeros().
 # Modify this matrix in place (without creating a new one) to set the "border" elements (the first row, last row, first column, and last column) all to the value 1. The inner 5x5 part should remain all zeros.
 # Print the final 7x7 matrix.
 
 all_zeroes = np.zeros((7,7), dtype=int)
+all_zeroes[0] = 1
+all_zeroes[6] = 1
+all_zeroes[:, 0] = 1
+all_zeroes[:, 6] = 1
 print(all_zeroes)
 
-# condition = np.where([all_zeroes[0, :] or all_zeroes[6,:] or all_zeroes[:,0] or all_zeroes[:,6]]) 
-# print(condition)          
-for i in range(7):
-    if i == 0 or i == 6:
-        all_zeroes[i] = np.array([1, 1, 1, 1, 1, 1, 1])
-    else:
-        all_zeroes[i][0] = 1
-        all_zeroes[i][6] = 1
+   
 
-
-print(all_zeroes)        
 
