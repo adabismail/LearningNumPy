@@ -59,8 +59,8 @@ print(f"Unsorted 2d array: {unsorted_2d}")
 #axis = 0 toh column wise, axis=1 matlab row wise
 
 
-sorted_2d_col = np.sort(unsorted_2d, axis=0)
-sorted_2d_row = np.sort(unsorted_2d, axis=1)
+sorted_2d_col = np.sort(unsorted_2d, axis=0)   #0 matlab col
+sorted_2d_row = np.sort(unsorted_2d, axis=1)    # 1 matlab row
 
 print(f"Column wise: {sorted_2d_col}\n Row wise: {sorted_2d_row}")
 
