@@ -35,8 +35,8 @@ print("\n")
 
 
 #removing col
-df.drop(columns=["Designation"], axis=1, inplace=True)   #can provide a list to remove multiple
-print(df)
+df.drop(columns=["Designation"], axis=0, inplace=True)   #can provide a list to remove multiple
+print(df)     #we cant do print(df(....., inplace=True)), like udgar hi print nai hoga, itll print None
 print("\n")
 df.insert(1, "Gender", ["f", "m", "m", "m"])    #insert adds col at a pos., takes pos, col name(strig), and what to add(list)
 
@@ -65,4 +65,9 @@ print(df.loc[1:2])
 print("\n"*10)
 print(df)
 
-print(df.iloc[0:3])
+
+#selecting col based on cond
+print("\nSelection rows based on cond., with age > 30 and designation = doctor")
+print(df[(df["Age"]>30) & (df["Designation"]=="Doc")])
+
+
