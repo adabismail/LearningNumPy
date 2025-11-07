@@ -35,7 +35,7 @@ print(f"Dropped col. A,C,D: left df:\n {df.dropna(axis=1)}\n")
 
 #threshold: matlab aisa rows/cols matlab jin mei minimum thresh hogai, woh remove nai hogai??
 
-print(f"With thresh=4, only those rows stay that have 4 or more non-nan vals: {df.dropna(thresh=4)}\n")
+print(f"With thresh=2, only those rows stay that have 2 or more non-nan vals: \n{df.dropna(thresh=2)}\n")
 
 #filling the missing data:
 print(f"data frame: \n {df}\n")
@@ -56,6 +56,10 @@ print(f"filling cols withh values: \n{df.fillna(value=values)}\n")    #this is a
 
 
 #filling vals with mean
-# print(df.fillna(np.mean(df, axis=0)))  look up tomorrow
+# print(df.fillna(np.mean(df, axis=0)))  #look up tomorrow
 
 print(f"Filling with mean vals: \n{df.fillna(df.mean())}")
+
+
+#mean of particular col:
+#df['A'].mean()
